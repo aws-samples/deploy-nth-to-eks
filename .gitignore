@@ -1,0 +1,4 @@
+.DS_Store
+cdk/node_modules
+cdk/package-lock.json
+updated_Role-Trust-Policy.json

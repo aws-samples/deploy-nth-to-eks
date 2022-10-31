@@ -1,0 +1,22 @@
+{
+  "Type": "AWS::AutoScaling::LifecycleHook",
+  "Properties": {
+    "AutoScalingGroupName": "nk-ndc-asbc-asg-dev-ASGeksup2-az2-comm",
+    "LifecycleHookName": "NTH-K8S-TERM-HOOK",
+    "LifecycleTransition": "autoscaling:EC2_INSTANCE_TERMINATING",
+    "HeartbeatTimeout": 500,
+    "DefaultResult": "CONTINUE",
+    "NotificationTargetARN": {
+      "Fn::GetAtt": [
+        "Queue",
+        "Arn"
+      ]
+    },
+    "RoleARN": {
+      "Fn::GetAtt": [
+        "ASGNotificationRole",
+        "Arn"
+      ]
+    }
+  }
+}

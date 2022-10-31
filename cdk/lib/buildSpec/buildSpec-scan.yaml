@@ -1,0 +1,31 @@
+version: "0.2"
+env:
+  variables:
+    EXECUTABLENAME: 'installApp.sh'
+phases:
+  install:
+    commands:
+      - HELM_DOWNLOAD_URL=https://get.helm.sh/helm-v3.5.4-linux-amd64.tar.gz
+      - echo $HELM_DOWNLOAD_URL
+      - wget -q $HELM_DOWNLOAD_URL
+      - tar -zxvf helm-v3.5.4-linux-amd64.tar.gz
+      - mv linux-amd64/helm /usr/local/bin/helm
+      - gem install cfn-nag --silent
+  pre_build:
+    commands:
+      - aws eks update-kubeconfig --name $EKS_CLUSTERNAME --region $AWS_REGION --role-arn $EKS_CLUSTERROLE_ARN
+  build:
+    commands:
+      - pwd
+      - |
+        chmod +x *.sh
+        installAppFile=$EXECUTABLENAME
+        if [ -f "$installAppFile" ]; then
+             . ./$installAppFile
+        else 
+            echo "Please add $EXECUTABLENAME is not Present" 
+            exit 1
+        fi
+artifacts:
+  files:
+    - "**/*"
