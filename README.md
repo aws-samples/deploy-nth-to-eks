@@ -176,3 +176,11 @@ To clean up the resources created by this pattern, execute the following command
 ./uninstall.sh
 ```
 This will clean up all the resources created in this pattern by deleting AWS CloudFormation stack.
+
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
