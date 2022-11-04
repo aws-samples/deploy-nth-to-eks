@@ -5,11 +5,11 @@
     "cfn_scan_script":"scan.sh",
     "cfn_deploy_script":"installApp.sh",
     "stackName":"deploy-nth-to-eks-pipeline-stack",
-    "eksClusterName":"my-cluster-target",
+    "eksClusterName":"EXISTING_EKS_CLUSTER_NAME",
     "eksClusterRole":"clusteradmin",
-    "create_cluster_role": "yes",
+    "create_cluster_role": "no",
     "create_iam_oidc_provider": "yes",
-    "AsgGroupName": "eksctl-my-cluster-target-nodegroup-ng-10d99c89-NodeGroup-ZME36IGAP7O1",
-    "region":"us-east-2",
-    "install_cdk": "yes"
+    "AsgGroupName": "EXISTING_ASG_GROUP_NAME",
+    "region":"AWS_REGION_NAME",
+    "install_cdk": "no"
 }

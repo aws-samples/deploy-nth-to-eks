@@ -272,10 +272,6 @@ enableRebalanceDraining: false
 # (TESTING USE): If specified, use the provided AWS endpoint to make API calls.
 awsEndpoint: ""
 
-# (TESTING USE): These should only be used for testing w/ localstack!
-awsAccessKeyID:
-awsSecretAccessKey:
-
 # (TESTING USE): Override the default metadata URL (default: http://169.254.169.254:80)
 instanceMetadataURL: ""
 

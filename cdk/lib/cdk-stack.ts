@@ -125,7 +125,9 @@ export class CdkStack extends Stack {
         actions:["sqs:ListQueues", "autoscaling:DescribeLifecycleHooks"]
       }),new PolicyStatement({ 
         resources:[`arn:aws:sqs:${this.region}:${this.account}:*${eksClusterName}*`],
-        actions:["sqs:*"]
+        actions:[
+          "sqs:DeleteQueue",
+          "sqs:CreateQueue"]
       })
 
       ]
@@ -140,6 +142,7 @@ export class CdkStack extends Stack {
     const scanArtifact = new Artifact("Scan");
     return new Pipeline(this, "pipeline", {
       pipelineName,
+      enableKeyRotation: true,
       stages: [{
         stageName: "Source",
         actions: [new CodeCommitSourceAction({
