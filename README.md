@@ -63,11 +63,11 @@ The workflow illustrated in the diagram consists of these high-level steps:
 ## Setup your environment
 To pull down the repo via ssh, run 
 ``` 
-git clone git@ssh.gitlab.aws.dev:gangapad/deploy-nth-to-eks.git 
+git clone git@github.com:aws-samples/deploy-nth-to-eks.git
 ```
 or via HTTPS
 ```
-git clone https://gitlab.aws.dev/gangapad/deploy-nth-to-eks.git
+git clone https://github.com/aws-samples/deploy-nth-to-eks.git
 ```
 This creates a folder named deploy-nth-to-eks. Navigate to the folder
 ```
